@@ -44,7 +44,7 @@ data$activity<-factor(data$activity, levels=activitylabel$V1, labels=activitylab
 
 library(reshape2)
 
-melted<-melt(data, id=c("subject","activity"), vars=meanstdval)
+melted<-melt(data, id=c("subject","activity"), measure.vars=meanstdval)
 newdata<-dcast(melted, subject + activity ~ variable, mean)
 
 write.table(newdata, file = "FinalData.txt",row.name=FALSE)
